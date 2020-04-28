@@ -19,8 +19,9 @@ return (NULL);
 new->n = number;
 new->next = NULL;
 
-if (!*head || loop->n > new->n)
+if (!loop || loop->n > new->n)
 {
+new->next = loop;
 *head = new;
 return (*head);
 }
