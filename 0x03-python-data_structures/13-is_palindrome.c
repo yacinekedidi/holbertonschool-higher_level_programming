@@ -1,4 +1,27 @@
 #include "lists.h"
+
+/**
+ * test - check the code for Holberton School students.
+ * @head: linked list
+ * @tab: table
+ * Return: Always .
+ */
+int test(listint_t **head, int tab[])
+{
+int i = 0;
+while (*head)
+{
+if (tab[i] == (*head)->n)
+{
+i++;
+*head = (*head)->next;
+}
+else
+return (0);
+}
+return (1);
+}
+
 /**
  * reverse - check the code for Holberton School students.
  * @head: linked list
@@ -53,18 +76,8 @@ i++;
 
 *head = reverse(*head);
 
-i = 0;
-while (*head)
-{
-if (tab[i] == (*head)->n)
-{
-i++, *head = (*head)->next;
-}
-else
-{
+i = test(head, tab);
+
 free(tab);
-return (0);
-}
-} free(tab);
-return (1);
+return (i);
 }
