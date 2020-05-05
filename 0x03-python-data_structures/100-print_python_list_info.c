@@ -3,17 +3,17 @@
 #include <Python.h>
 
 
-
+/**
+ * print_python_list_info - prints info about python lists
+ * @p: pyobject struct
+ */
 void print_python_list_info(PyObject *p)
 {
-	unsigned int i, allocation = 0;
-	Py_ssize_t size = Py_SIZE(p);
-	printf("[*] Size of the Python List = %lu\n", size);
-	printf("[*] Allocated = %lu\n", allocation);
+	int i;
 
-		for (i = 0 ; i < size ; i++)
-		{
-			printf("Element %lu : %s\n", i, Py_TYPE(PyList_GetItem(p, i))->tp_name);
-		}
+	printf("[*] Size of the Python List = %lu\n", Py_SIZE(p));
+	printf("[*] Allocated = %lu\n", 0);
+		for (i = 0 ; i < Py_SIZE(p) ; i++)
+			printf("Element %lu: %s\n", i, Py_TYPE(PyList_GetItem(p, i))->tp_name);
 
 }
