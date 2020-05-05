@@ -65,6 +65,6 @@ else
 free(tab);
 return (0);
 }
-} free(tab);
+} *head = reverse(*head), free(tab);
 return (1);
 }
