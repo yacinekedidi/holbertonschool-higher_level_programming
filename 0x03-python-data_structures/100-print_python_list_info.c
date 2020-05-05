@@ -13,7 +13,7 @@ void print_python_list_info(PyObject *p)
 
 		for (i = 0 ; i < size ; i++)
 		{
-			printf("Element %lu : %s", i, Py_TYPE(PyList_GetItem(p, i))->tp_name);
+			printf("Element %lu : %s\n", i, Py_TYPE(PyList_GetItem(p, i))->tp_name);
 		}
 
 }
