@@ -40,7 +40,7 @@ tmp = tmp->next;
 i++;
 }
 
-tab = malloc(i);
+tab = malloc(sizeof(int) * i);
 
 tmp = *head;
 i = 0;
