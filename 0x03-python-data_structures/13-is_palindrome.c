@@ -17,7 +17,10 @@ i++;
 *head = (*head)->next;
 }
 else
-return (0);
+{
+       	
+	return (0);
+}
 }
 return (1);
 }
@@ -51,7 +54,7 @@ return (head);
 int is_palindrome(listint_t **head)
 {
 listint_t *tmp = *head;
-int *tab;
+int tab[4000];
 int i = 0;
 
 if (!*head || !(*head)->next)
@@ -63,21 +66,23 @@ tmp = tmp->next;
 i++;
 }
 
-tab = malloc(sizeof(int) * i);
-
 tmp = *head;
 i = 0;
 while (tmp)
 {
+	
 tab[i] = tmp->n;
 tmp = tmp->next;
 i++;
 }
+tab[i] = '\0';
 
 *head = reverse(*head);
 
 i = test(head, tab);
+	 
 
-free(tab);
+
+
 return (i);
 }
