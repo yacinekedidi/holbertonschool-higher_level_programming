@@ -51,7 +51,7 @@ class Square:
                 for x in range(self.__size):
                     my_str += "#"
                 my_str += "\n"
-        return my_str[:-1]
+        return my_str
 
     def my_print(self):
-        print(self.my_Strprint())
+        print(self.my_Strprint(), end="")
