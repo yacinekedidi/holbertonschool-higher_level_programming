@@ -9,7 +9,7 @@ class Square:
         self.position = position
 
     def __str__(self):
-        return self.my_Strprint()
+        return self.my_Strprint()[:-1]
 
     @property
     def size(self):
