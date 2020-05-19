@@ -9,7 +9,7 @@ class Square:
         self.position = position
 
     def __str__(self):
-        return self.my_print()
+        return self.my_Strprint()
 
     @property
     def size(self):
@@ -38,7 +38,7 @@ class Square:
     def area(self):
         return self.__size ** 2
 
-    def my_print(self):
+    def my_Strprint(self):
         my_str = ""
         if self.__size == 0:
             return "\n"
@@ -52,3 +52,6 @@ class Square:
                     my_str += "#"
                 my_str += "\n"
         return my_str[:-1]
+
+    def my_print(self):
+        print(self.my_Strprint(), end="")
