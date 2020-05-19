@@ -54,4 +54,4 @@ class Square:
         return my_str[:-1]
 
     def my_print(self):
-        print(self.my_Strprint(), end="")
+        print(self.my_Strprint())
