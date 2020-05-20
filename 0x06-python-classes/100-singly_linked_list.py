@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Node class."""
 
+
 class Node:
     """defines a node."""
     def __init__(self, data, next_node=None):
@@ -44,7 +45,7 @@ class SinglyLinkedList:
     def __str__(self):
         stR = ""
         tmp = self.__head
-        if  tmp is not None:
+        if tmp.data is not None:
             while tmp is not None:
                 stR += str(tmp.data)
                 stR += "\n"
@@ -56,7 +57,7 @@ class SinglyLinkedList:
         tmp = self.__head
         if tmp is None:
             self.__head = new
-        elif  tmp.data is None:
+        elif tmp.data is None:
             tmp.data = value
         else:
             if value <= tmp.data:
