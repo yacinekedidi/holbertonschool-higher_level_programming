@@ -1,9 +1,15 @@
 #!/usr/bin/python3
-"""module for adding two integers."""
+"""module 0-add_integer.
+
+
+
+"""
 
 
 def add_integer(a, b=98):
-    """function that adds two integers."""
+    """
+    Returns: sum of a and b
+    """
     if type(a) is not int:
         if type(a) is float:
             a = int(a)

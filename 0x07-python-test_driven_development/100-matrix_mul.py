@@ -1,9 +1,15 @@
 #!/usr/bin/python3
-"""module matrix_divide."""
+"""module matrix_divide.
+
+
+
+"""
 
 
 def matrix_mul(m_a, m_b):
-    """function matrix_mul."""
+    """
+    function matrix_mul
+    """
     if not isinstance(m_a, list):
         raise TypeError("m_a must be a list")
     if not isinstance(m_b, list):

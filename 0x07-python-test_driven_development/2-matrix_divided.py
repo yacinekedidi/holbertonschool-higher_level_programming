@@ -1,9 +1,15 @@
 #!/usr/bin/python3
-"""module matrix_divided."""
+"""module matrix_divided.
+
+
+
+"""
 
 
 def matrix_divided(matrix, div):
-    """function matrix_divided."""
+    """
+    function matrix_divided
+    """
     if type(matrix) is not list:
         raise TypeError("matrix must be a matrix (list of lists) \
 of integers/floats")

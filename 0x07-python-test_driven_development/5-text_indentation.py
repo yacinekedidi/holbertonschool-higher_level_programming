@@ -1,9 +1,15 @@
 #!/usr/bin/python3
-"""module text_indentation."""
+"""module text_indentation.
+
+
+
+"""
 
 
 def text_indentation(text):
-    """function text_indentation."""
+    """
+    function text_indentation
+    """
     if type(text) is not str:
         raise TypeError("text must be a string")
     i = 0
