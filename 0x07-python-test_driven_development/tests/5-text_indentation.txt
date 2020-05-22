@@ -38,3 +38,21 @@ This is an example text file in reStructuredText format.  First import
     <BLANKLINE>
     :
     <BLANKLINE>
+
+    >>> text_indentation("")
+
+    >>> text_indentation(".?:")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+    >>> text_indentation("   ?   :   .")
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    .
+    <BLANKLINE>
