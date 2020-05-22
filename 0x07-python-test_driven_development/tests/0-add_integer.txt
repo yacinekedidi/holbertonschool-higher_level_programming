@@ -1,0 +1,133 @@
+The ``0-add_integer`` module
+======================
+
+Using ``add_integer``
+-------------------
+
+This is an example text file in reStructuredText format.  First import
+``add_integer`` from the ``0-add_integer`` module:
+
+    >>> add_integer = __import__("0-add_integer").add_integer
+
+Now use it:
+
+    >>> add_integer(0)
+    98
+
+negative numbers:
+
+    >>> add_integer(-5, -100)
+    -105
+
+a as a float
+
+    >>> add_integer(10.5, 5)
+    15
+
+b as a float:
+
+    >>> add_integer(10, 5.5)
+    15
+
+
+both a and b as float:
+
+    >>> add_integer(10.5, 5.5)
+    15
+
+a as a non integer:
+
+    >>> add_integer("a", 10)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+b as a non integer:
+
+    >>> add_integer(10, "a")
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+two long integers:
+
+    >>> add_integer(99999999999999999, 999999999999999)
+    100999999999999998
+
+
+one float added to default b:
+
+    >>> add_integer(1.5)
+    99
+
+string to default b
+
+    >>> add_integer("a")
+    Traceback (most recent call last):
+     ...
+    TypeError: a must be an integer
+
+a as float and b as integer:
+
+     >>> add_integer(1.2, 1)
+     2
+
+a as integer and b as float
+
+     >>> add_integer(1, 1.5)
+     2
+
+a and b as floats:
+
+     >>> add_integer(1.2, 3.5)
+     4
+
+two long floats:
+
+     >>> add_integer(9999999999999999999999999999999999999999999999999.4, 9999999999999999999999999999999999999999999.55)
+     10000009999999999464902908847598752610971545501696
+
+a and b as tuples:
+
+     >>> add_integer((10, 4), (10, 4))
+     Traceback (most recent call last):
+     ...
+     TypeError: a must be an integer
+
+a and b as lists:
+
+     >>> add_integer([10, 3], [10, 3])
+     Traceback (most recent call last):
+     ...
+     TypeError: a must be an integer
+
+a and b as sets:
+
+     >>> add_integer({10, 3}, {10, 3})
+     Traceback (most recent call last):
+     ...
+     TypeError: a must be an integer
+
+
+a and b as dictionaries:
+
+     >>> add_integer({10: 5}, {10: 5})
+     Traceback (most recent call last):
+     ...
+     TypeError: a must be an integer
+
+
+a as negative added to default b:
+
+     >>> add_integer(-1)
+     97
+
+b as negative integer:
+
+     >>> add_integer(5, -5)
+     0
+
+a and b as negative integers:
+
+     >>> add_integer(-5, -5)
+     -10

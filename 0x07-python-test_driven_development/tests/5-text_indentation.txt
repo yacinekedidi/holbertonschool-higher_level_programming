@@ -1,0 +1,40 @@
+The ``5-text_indentation`` module
+======================
+
+Using ``text_indentation``
+-------------------
+
+This is an example text file in reStructuredText format.  First import
+``text_indentation`` from the ``5-text_indentation`` module:
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+    >>> txt = "hello. whatever: whoever? whenever"
+    >>> text_indentation(txt)
+    hello.
+    <BLANKLINE>
+    whatever:
+    <BLANKLINE>
+    whoever?
+    <BLANKLINE>
+    whenever
+
+    >>> txt = 5
+    >>> text_indentation(txt)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+    >>> txt = "          hello.     "
+    >>> text_indentation(txt)
+    hello.
+    <BLANKLINE>
+
+    >>> txt = ".?:"
+    >>> text_indentation(txt)
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>

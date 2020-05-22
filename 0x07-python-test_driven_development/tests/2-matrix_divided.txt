@@ -1,0 +1,59 @@
+The ``0-add_integer`` module
+======================
+
+Using ``add_integer``
+-------------------
+
+This is an example text file in reStructuredText format.  First import
+``add_integer`` from the ``0-add_integer`` module:
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+    >>> x = [[1, 2, 3], [4, 5, 6]]
+    >>> matrix_divided(x, 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+    >>> x = "hello"
+    >>> matrix_divided(x, 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> x = [["a", 10], [5, 4]]
+    >>> matrix_divided(x, 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> x = [[5.2, 5], [10.4, 5]]
+    >>> matrix_divided(x, 2)
+    [[2.6, 2.5], [5.2, 2.5]]
+
+    >>> x = [[]]
+    >>> matrix_divided(x, 2)
+    [[]]
+
+    >>> x = ["hello", [1, 5]]
+    >>> matrix_divided(x, 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+    >>> x = [[10, 4], [10]]
+    >>> matrix_divided(x, 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: Each row of the matrix must have the same size
+
+    >>> x = [[10, 4], [10, 4]]
+    >>> matrix_divided(x, 0)
+    Traceback (most recent call last):
+    ...
+    ZeroDivisionError: division by zero
+
+    >>> x = [[10, 4], [10, 4]]
+    >>> matrix_divided(x, "hello")
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
