@@ -26,14 +26,7 @@ This is an example text file in reStructuredText format.  First import
      ...
     ValueError: size must be >= 0
 
-    >>> print_square(-5.2)
-    Traceback (most recent call last):
-     ...
-    TypeError: size must be an integer
-
     >>> print_square(5.2)
-    #####
-    #####
-    #####
-    #####
-    #####
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
