@@ -131,3 +131,13 @@ a and b as negative integers:
 
      >>> add_integer(-5, -5)
      -10
+
+     >>> add_integer(float('nan'), 5)
+     Traceback (most recent call last):
+     ...
+     ValueError: cannot convert float NaN to integer
+
+     >>> add_integer(float('Inf'))
+     Traceback (most recent call last):
+     ...
+     OverflowError: cannot convert float infinity to integer
