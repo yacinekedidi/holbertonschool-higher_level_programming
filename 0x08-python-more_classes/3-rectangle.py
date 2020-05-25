@@ -19,7 +19,7 @@ class Rectangle:
         if self.__width == 0 and self.__height == 0:
             return s[:-1]
         for i in range(self.__height):
-            for i in range(self.__width):
+            for j in range(self.__width):
                 s += "#"
             s += "\n"
         return s[:-1]
