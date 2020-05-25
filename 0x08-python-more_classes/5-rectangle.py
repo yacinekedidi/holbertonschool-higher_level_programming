@@ -11,8 +11,8 @@ class Rectangle:
     Defines a rectangle
     """
     def __init__(self, width=0, height=0):
-        self.__height = height
         self.__width = width
+        self.__height = height
 
     def __del__(self):
         print("Bye rectangle...")
