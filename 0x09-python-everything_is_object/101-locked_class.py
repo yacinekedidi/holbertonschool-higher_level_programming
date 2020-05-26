@@ -4,6 +4,7 @@
 
 """
 
+
 class LockedClass:
     """
     locked slots
