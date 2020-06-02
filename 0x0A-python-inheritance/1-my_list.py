@@ -7,6 +7,9 @@
 
 
 class MyList(list):
+    """
+    class
+    """
     def print_sorted(self):
         """
         method prints sorted list.
