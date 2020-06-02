@@ -25,13 +25,6 @@ This is an example text file in reStructuredText format.  First import
     ...
     TypeError: integer_validator() missing 1 required positional argument: 'value'
 
-
-    >>> bg = BG()
-    >>> bg.integer_validator("nmbr")
-    Traceback (most recent call last):
-    ...
-    TypeError: integer_validator() missing 1 required positional argument: 'value'
-
     >>> bg = BG()
     >>> bg.integer_validator("nmbr","a")
     Traceback (most recent call last):
@@ -80,3 +73,15 @@ This is an example text file in reStructuredText format.  First import
     Traceback (most recent call last):
     ...
     TypeError: area() takes 1 positional argument but 2 were given
+
+    >>> bg = BG()
+    >>> bg.integer_validator((45, 4), "a")
+    Traceback (most recent call last):
+    ...
+    TypeError: (45, 4) must be an integer
+
+    >>> bg = BG()
+    >>> bg.integer_validator((45, 4), -5)
+    Traceback (most recent call last):
+    ...
+    ValueError: (45, 4) must be greater than 0
