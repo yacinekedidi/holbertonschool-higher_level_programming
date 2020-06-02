@@ -7,6 +7,9 @@
 
 
 class MyInt(int):
+    """
+    subclass
+    """
     def __eq__(self, other):
         return int(self) != other
 
