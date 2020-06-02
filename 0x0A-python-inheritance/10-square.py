@@ -12,4 +12,5 @@ class Square(Rectangle):
     subclass
     """
     def __init__(self, size):
+        self.size = size
         super().__init__(size, size)
