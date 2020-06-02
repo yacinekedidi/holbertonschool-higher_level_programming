@@ -12,6 +12,7 @@ This is an example text file in reStructuredText format.  First import
 
     >>> bg = BG()
     >>> bg.integer_validator("num", 50)
+    True
 
     >>> bg = BG()
     >>> bg.integer_validator()
