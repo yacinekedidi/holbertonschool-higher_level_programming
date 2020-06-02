@@ -57,3 +57,12 @@ This is an example text file in reStructuredText format.  First import
     >>> bg = BG()
     >>> isinstance(bg, BG)
     True
+
+    >>> bg = BG()
+    >>> bg.area()
+    Traceback (most recent call last):
+    ...
+    Exception: area() is not implemented
+
+    >>> print(bg) # doctest: +ELLIPSIS
+    <7-base_geometry.BaseGeometry object at ...>
