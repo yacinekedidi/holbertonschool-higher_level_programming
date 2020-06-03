@@ -13,5 +13,5 @@ def print_stat(s, d):
         print("File size: {}".format(s))
         for k, v in d.items():
             print("{}: {}".format(k, v))
-    except:
+    except Exception:
         pass

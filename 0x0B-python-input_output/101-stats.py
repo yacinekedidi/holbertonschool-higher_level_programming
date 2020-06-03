@@ -22,10 +22,16 @@ if __name__ == "__main__":
             else:
                 nbl += 1
             line = line.split()
-            s += int(line[-1])
-            for k, v in d.items():
-                if k == line[-2]:
-                    d[k] += 1
+            try:
+                s += int(line[-1])
+            except Exception:
+                pass
+            try:
+                for k, v in d.items():
+                    if k == line[-2]:
+                        d[k] += 1
+            except Exception:
+                pass
         ps(s, d)
     except KeyboardInterrupt:
         ps(s, d)
