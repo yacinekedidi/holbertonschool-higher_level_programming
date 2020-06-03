@@ -20,7 +20,7 @@ class Student:
         retrieve dict.
         """
         x = {}
-        if type(attrs) is list and all([isinstance(x, str) for x in attrs]):
+        if attrs is not None:
             for i in attrs:
                 if hasattr(self, i):
                     x[i] = str(getattr(self, i))
