@@ -23,6 +23,6 @@ class Student:
         if attrs is not None:
             for i in attrs:
                 if hasattr(self, i):
-                    x[i] = str(getattr(self, i))
+                    x[i] = self.__dict__[i]
             return x
         return self.__dict__
