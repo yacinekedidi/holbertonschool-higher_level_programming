@@ -14,7 +14,7 @@ def pascal_triangle(n):
     if n <= 0:
         return l
     if n == 1:
-        return [1]
+        return [[1]]
     r = [[1] for i in range(n)]
     for i in range(n):
         for j in range(i):
