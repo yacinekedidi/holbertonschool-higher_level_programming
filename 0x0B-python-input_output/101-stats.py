@@ -24,7 +24,7 @@ if __name__ == "__main__":
             line = line.split()
             try:
                 s += int(line[-1])
-            except ValueError:
+            except Exception:
                 pass
             for k, v in d.items():
                 if k == line[-2]:
