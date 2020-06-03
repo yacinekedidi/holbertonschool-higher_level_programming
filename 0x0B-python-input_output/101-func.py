@@ -9,6 +9,9 @@ def print_stat(s, d):
     """
     print the stats and size.
     """
-    print("File size: {:d}".format(s))
-    for k, v in d.items():
-        print("{}: {:d}".format(k, v))
+    try:
+        print("File size: {}".format(s))
+        for k, v in d.items():
+            print("{}: {}".format(k, v))
+    except:
+        pass
