@@ -9,7 +9,10 @@ def print_stat(s, d):
     """
     print the stats and size.
     """
-    print("File size: {}".format(s))
-    for k, v in d.items():
-        if v != 0:
-            print("{}: {}".format(k, v))
+    try:
+        print("File size: {}".format(s))
+        for k, v in sorted(d.items()):
+            if v != 0:
+                print("{}: {}".format(k, v))
+    except Exception:
+        pass
