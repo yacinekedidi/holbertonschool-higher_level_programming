@@ -26,10 +26,13 @@ if __name__ == "__main__":
                 s += int(line[-1])
             except Exception:
                 pass
-            for k, v in d.items():
-                if k == line[-2]:
-                    d[k] += 1
-        ps(s, d)
+            try:
+                for k, v in d.items():
+                    if k == line[-2]:
+                        d[k] += 1
+            except Exception:
+                pass
+            ps(s, d)
     except KeyboardInterrupt:
         ps(s, d)
         raise
