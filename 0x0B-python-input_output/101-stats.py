@@ -32,7 +32,7 @@ if __name__ == "__main__":
                         d[k] += 1
             except Exception:
                 pass
-            ps(s, d)
+        ps(s, d)
     except KeyboardInterrupt:
         ps(s, d)
         raise
