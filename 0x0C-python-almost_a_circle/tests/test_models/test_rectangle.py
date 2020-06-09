@@ -37,11 +37,6 @@ class TestRectangle_instantiation(unittest.TestCase):
                 self.assertEqual(r1.height, 2)
                 self.assertEqual(r1.x, 12)
                 self.assertEqual(r1.area(), 20)
-                self.assertEqual(r1.__dict__, {'id': 7,
-                                               '_Rectangle__width': 10,
-                                               '_Rectangle__height': 2,
-                                               '_Rectangle__x': 12,
-                                               '_Rectangle__y': 0})
                 self.assertTrue(hasattr(r1, "id"))
                 self.assertTrue(hasattr(r1, '_Base__nb_objects'))
 
@@ -66,6 +61,11 @@ class TestRectangle_instantiation(unittest.TestCase):
                 self.assertEqual(r1.x, 12)
                 self.assertEqual(r1.y, 10)
                 self.assertEqual(r1.area(), 20)
+                self.assertEqual(r1.__dict__, {'id': 5,
+                                               '_Rectangle__width': 10,
+                                               '_Rectangle__height': 2,
+                                               '_Rectangle__x': 12,
+                                               '_Rectangle__y': 10})
 
         def test_more_args(self):
                 """two args"""
@@ -100,6 +100,56 @@ class TestRectangle_instantiation(unittest.TestCase):
                 r1 = Rectangle(1, 2)
                 dis = "#\n#\n"
                 self.assertEqual(r1.display(), print(dis))
+
+        def test_inheritance(self):
+                """inheritance"""
+                r1 = Rectangle(10, 5)
+                self.assertTrue(issubclass(Rectangle, Base))
+                self.assertTrue(isinstance(r1, Base))
+
+        def test_str(self):
+                """str"""
+                r1 = Rectangle(10, 10, 10, 10)
+                s = "[Rectangle] (1) 10/10 - 10/10"
+                self.assertEqual(print(s), print(r1))
+                r1.update(89)
+                s = "[Rectangle] (89) 10/10 - 10/10"
+                self.assertEqual(print(s), print(r1))
+                r1.update(89, 2)
+                s = "[Rectangle] (89) 10/10 - 2/10"
+                self.assertEqual(print(s), print(r1))
+                r1.update(89, 2, 3)
+                s = "[Rectangle] (89) 10/10 - 2/3"
+                self.assertEqual(print(s), print(r1))
+                r1.update(89, 2, 3, 4)
+                s = "[Rectangle] (89) 4/10 - 2/3"
+                self.assertEqual(print(s), print(r1))
+                r1.update(89, 2, 3, 4, 5)
+                s = "[Rectangle] (89) 4/10 - 2/3"
+                self.assertEqual(print(s), print(r1))
+
+        def test_kwargs(self):
+                """kwargs"""
+                r1 = Rectangle(10, 10, 10, 10)
+                s = "[Rectangle] (1) 10/10 - 10/10"
+                self.assertEqual(print(r1), print(s))
+
+                r1.update(height=1)
+                s = "[Rectangle] (1) 10/10 - 10/1"
+                self.assertEqual(print(r1), print(s))
+
+                r1.update(width=1, x=2)
+                s = "[Rectangle] (1) 2/10 - 1/1"
+                self.assertEqual(print(r1), print(s))
+
+                r1.update(y=1, width=2, x=3, id=89)
+                s = "[Rectangle] (89) 3/1 - 2/1"
+                self.assertEqual(print(r1), print(s))
+
+                r1.update(x=1, height=2, y=3, width=4)
+                s = "[Rectangle] (89) 1/3 - 4/2"
+                self.assertEqual(print(r1), print(s))
+
 
 if __name__ == '__main__':
     unittest.main()

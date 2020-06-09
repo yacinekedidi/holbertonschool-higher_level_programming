@@ -91,5 +91,11 @@ class TestSquare_instantiation(unittest.TestCase):
                 dis = "\n\n ##\n ##\n"
                 self.assertEqual(r1.display(), print(dis))
 
+        def test_inheritance(self):
+                """inheritance"""
+                r1 = Square(10, 5)
+                self.assertTrue(issubclass(Square, Base))
+                self.assertTrue(isinstance(r1, Base))
+
 if __name__ == '__main__':
     unittest.main()
