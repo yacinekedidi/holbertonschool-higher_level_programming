@@ -26,6 +26,7 @@ class TestRectangle_instantiation(unittest.TestCase):
                 self.assertEqual(r1.id, r2.id - 1)
                 self.assertEqual(r1.width, 10)
                 self.assertEqual(r1.height, 12)
+                self.assertEqual(r1.area(), 120)
 
         def test_three_args(self):
                 """two args"""
@@ -35,16 +36,17 @@ class TestRectangle_instantiation(unittest.TestCase):
                 self.assertEqual(r1.width, 10)
                 self.assertEqual(r1.height, 2)
                 self.assertEqual(r1.x, 12)
+                self.assertEqual(r1.area(), 20)
 
         def test_four_args(self):
                 """two args"""
-                r1 = Rectangle(10, 2, 12, 6)
+                r1 = Rectangle(10, 2, 0, 0)
                 r2 = Rectangle(10, 2, 0, 7)
                 self.assertEqual(r1.id, r2.id - 1)
                 self.assertEqual(r1.width, 10)
                 self.assertEqual(r1.height, 2)
-                self.assertEqual(r1.x, 12)
-                self.assertEqual(r1.y, 6)
+                self.assertEqual(r1.x, 0)
+                self.assertEqual(r1.y, 0)
 
         def test_five_args(self):
                 """two args"""
@@ -56,12 +58,31 @@ class TestRectangle_instantiation(unittest.TestCase):
                 self.assertEqual(r1.height, 2)
                 self.assertEqual(r1.x, 12)
                 self.assertEqual(r1.y, 10)
+                self.assertEqual(r1.area(), 20)
 
         def test_more_args(self):
                 """two args"""
                 with self.assertRaises(TypeError):
                         r1 = Rectangle(10, 2, 12, 10, 5, 4)
 
+        def test_type_args(self):
+                """ types"""
+                with self.assertRaises(TypeError) as e:
+                        ex = "width must be an integer"
+                        r1 = Rectangle("a", 5)
+                self.assertEqual(ex, str(e.exception))
+                with self.assertRaises(TypeError) as e:
+                        ex = "height must be an integer"
+                        r1 = Rectangle(5, "a")
+                self.assertEqual(ex, str(e.exception))
+                with self.assertRaises(ValueError) as e:
+                        ex = "x must be >= 0"
+                        r1 = Rectangle(5, 5, -4, 4)
+                self.assertEqual(ex, str(e.exception))
+                with self.assertRaises(ValueError) as e:
+                        ex = "y must be >= 0"
+                        r1 = Rectangle(5, 5, 5, -5)
+                self.assertEqual(ex, str(e.exception))
 
 if __name__ == '__main__':
     unittest.main()

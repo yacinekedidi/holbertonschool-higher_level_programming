@@ -20,6 +20,7 @@ class TestSquare_instantiation(unittest.TestCase):
                 r2 = Square(12)
                 self.assertEqual(r1.id, r2.id - 1)
                 self.assertEqual(r1.size, 10)
+                self.assertEqual(r1.area(), 100)
 
         def test_two_args(self):
                 """two args"""
@@ -28,6 +29,7 @@ class TestSquare_instantiation(unittest.TestCase):
                 self.assertEqual(r1.id, r2.id - 1)
                 self.assertEqual(r1.size, 10)
                 self.assertEqual(r1.x, 12)
+                self.assertEqual(r1.area(), 100)
 
         def test_three_args(self):
                 """two args"""
@@ -37,6 +39,7 @@ class TestSquare_instantiation(unittest.TestCase):
                 self.assertEqual(r1.size, 10)
                 self.assertEqual(r1.x, 2)
                 self.assertEqual(r1.y, 12)
+                self.assertEqual(r1.area(), 100)
 
         def test_four_args(self):
                 """two args"""
@@ -47,11 +50,27 @@ class TestSquare_instantiation(unittest.TestCase):
                 self.assertEqual(r1.y, 12)
                 self.assertEqual(r1.id, 6)
                 self.assertEqual(r2.id, 7)
+                self.assertEqual(r1.area(), 100)
 
         def test_more(self):
                 """two args"""
                 with self.assertRaises(TypeError):
                         r1 = Square(10, 2, 12, 10, 5)
+
+        def test_type_args(self):
+                """ types"""
+                with self.assertRaises(TypeError) as e:
+                        ex = "width must be an integer"
+                        r1 = Square("a", 5)
+                self.assertEqual(ex, str(e.exception))
+                with self.assertRaises(ValueError) as e:
+                        ex = "x must be >= 0"
+                        r1 = Square(5, -4, 4)
+                self.assertEqual(ex, str(e.exception))
+                with self.assertRaises(ValueError) as e:
+                        ex = "y must be >= 0"
+                        r1 = Square(5, 5, -5)
+                self.assertEqual(ex, str(e.exception))
 
 
 if __name__ == '__main__':
