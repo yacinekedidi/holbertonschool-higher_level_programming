@@ -18,11 +18,21 @@ class TestBase(unittest.TestCase):
                 """tears down"""
                 pass
 
-        def test_no_args(self):
+        def test_main(self):
                 """test without args"""
                 b1 = Base()
+                self.assertEqual(b1.id, 1)
+
                 b2 = Base()
-                self.assertEqual(b1.id, b2.id - 1)
-                self.assertEqual(Base._Base__nb_objects, b2.id)
+                self.assertEqual(b2.id, 2)
+
+                b3 = Base()
+                self.assertEqual(b3.id, 3)
+
+                b4 = Base(12)
+                self.assertEqual(b4.id, 12)
+
+                b5 = Base()
+                self.assertEqual(b5.id, 4)
 if __name__ == '__main__':
     unittest.main()
