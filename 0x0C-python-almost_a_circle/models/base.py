@@ -6,6 +6,7 @@
 """
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -106,3 +107,29 @@ class Base:
                 l.append(cls.create(**d))
 
         return l
+
+    @staticmethod
+    def draw(lr, ls):
+        """draw"""
+        turtle.color("green")
+        for i in lr:
+            turtle.forward(i.height)
+            turtle.left(90)
+            turtle.forward(i.width)
+            turtle.left(90)
+            turtle.forward(i.height)
+            turtle.left(90)
+            turtle.forward(i.width)
+            turtle.left(90)
+
+        turtle.color("red")
+        for i in ls:
+            turtle.forward(i.size)
+            turtle.left(90)
+            turtle.forward(i.size)
+            turtle.left(90)
+            turtle.forward(i.size)
+            turtle.left(90)
+            turtle.forward(i.size)
+            turtle.left(90)
+            turtle.setheading(turtle.heading() + 90)
