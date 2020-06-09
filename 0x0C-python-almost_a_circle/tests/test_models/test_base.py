@@ -9,11 +9,23 @@ from models.square import Square
 
 class TestBase_instantiation(unittest.TestCase):
         """class"""
+        def test_none(self):
+                """none"""
+                with self.assertRaises(TypeError) as e:
+                        msg = "__init__() missing 1 required positional \
+argument: 'self'"
+                        Base.__init__()
+                self.assertEqual(msg, str(e.exception))
+
         def test_no_args(self):
                 """test without args"""
                 b1 = Base()
                 b2 = Base()
                 self.assertEqual(b1.id, b2.id - 1)
+                self.assertEqual(b1.__dict__, {"id": 1})
+                self.assertTrue(hasattr(b1, "id"))
+                self.assertTrue(hasattr(b1, '_Base__nb_objects'))
+                self.assertEqual(b2._Base__nb_objects, 2)
 
         def test_one_arg(self):
                 """one arg"""
@@ -24,8 +36,12 @@ class TestBase_instantiation(unittest.TestCase):
 
         def test_two_args(self):
                 """two args"""
-                with self.assertRaises(TypeError):
+                with self.assertRaises(TypeError) as e:
+                        msg = "__init__() takes from 1 to 2 positional arguments \
+but 3 were given"
                         b1 = Base(5, 10)
+                self.assertEqual(msg, str(e.exception))
+                b1 = Base()
 
 if __name__ == '__main__':
     unittest.main()

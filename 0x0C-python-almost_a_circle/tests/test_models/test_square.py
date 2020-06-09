@@ -21,6 +21,13 @@ class TestSquare_instantiation(unittest.TestCase):
                 self.assertEqual(r1.id, r2.id - 1)
                 self.assertEqual(r1.size, 10)
                 self.assertEqual(r1.area(), 100)
+                self.assertEqual(r1.__dict__, {"id": 13,
+                                               "_Rectangle__width": 10,
+                                               "_Rectangle__height": 10,
+                                               "_Rectangle__x": 0,
+                                               "_Rectangle__y": 0})
+                self.assertTrue(hasattr(r1, "id"))
+                self.assertTrue(hasattr(r1, '_Base__nb_objects'))
 
         def test_two_args(self):
                 """two args"""
@@ -71,7 +78,19 @@ class TestSquare_instantiation(unittest.TestCase):
                         ex = "y must be >= 0"
                         r1 = Square(5, 5, -5)
                 self.assertEqual(ex, str(e.exception))
+                with self.assertRaises(TypeError):
+                        r1 = Square(5, "x", 0)
+                with self.assertRaises(TypeError):
+                        r1 = Square(5, "y", 0)
 
+        def test_display(self):
+                """display"""
+                r1 = Square(2)
+                dis = "##\n##\n"
+                self.assertEqual(r1.display(), print(dis))
+                r1 = Square(2, 1, 2)
+                dis = "\n\n ##\n ##\n"
+                self.assertEqual(r1.display(), print(dis))
 
 if __name__ == '__main__':
     unittest.main()
