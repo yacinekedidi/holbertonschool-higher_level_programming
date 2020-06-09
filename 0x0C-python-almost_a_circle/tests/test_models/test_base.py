@@ -43,5 +43,16 @@ but 3 were given"
                 self.assertEqual(msg, str(e.exception))
                 b1 = Base()
 
+        def test_dict_to_json_string(self):
+                """dict to json string"""
+                r1 = Rectangle(10, 7, 2, 8, 5)
+                d = r1.to_dictionary()
+                jd = Base.to_json_string([d])
+                s = '[{"x": 2, "width": 10, "id": 5, "height": 7, "y": 8}]'
+                self.assertEqual(print(jd), print(s))
+                self.assertEqual(str(type(jd)), "<class 'str'>")
+                jd = Base.to_json_string([None])
+                self.assertEqual(print(jd), print("[]"))
+
 if __name__ == '__main__':
     unittest.main()
