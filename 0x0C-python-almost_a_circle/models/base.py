@@ -96,13 +96,13 @@ class Base:
         with open("{}.csv".format(cls.__name__), "r", newline="") as f:
             r = csv.reader(f)
             for row in r:
-                x =  [int(y) for y in row]
+                x = [int(y) for y in row]
                 if len(x) == 5:
-                    d = {'id': x[0], 'width': x[1], 'height': x[2]
-                         , 'x': x[3], 'y': x[4]}
+                    d = {'id': x[0], 'width': x[1], 'height': x[2],
+                         'x': x[3], 'y': x[4]}
                 else:
-                    d = {'id': x[0], 'size': x[1]
-                         , 'x': x[2], 'y': x[3]}
+                    d = {'id': x[0], 'size': x[1],
+                         'x': x[2], 'y': x[3]}
                 l.append(cls.create(**d))
 
         return l
