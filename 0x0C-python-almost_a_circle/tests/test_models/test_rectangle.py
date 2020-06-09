@@ -150,6 +150,17 @@ class TestRectangle_instantiation(unittest.TestCase):
                 s = "[Rectangle] (89) 1/3 - 4/2"
                 self.assertEqual(print(r1), print(s))
 
+        def test_todict(self):
+                """dict"""
+                r1 = Rectangle(10, 2, 1, 9)
+                r1_dictionary = r1.to_dictionary()
+                s = "{'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}"
+                self.assertEqual(print(r1_dictionary), print(s))
+                self.assertEqual(str(type(r1_dictionary)), "<class 'dict'>")
+                r2 = Rectangle(1, 1)
+                r2.update(**r1_dictionary)
+                self.assertFalse(r1 == r2)
+                self.assertEqual(print(r1), print(r2))
 
 if __name__ == '__main__':
     unittest.main()

@@ -97,5 +97,32 @@ class TestSquare_instantiation(unittest.TestCase):
                 self.assertTrue(issubclass(Square, Base))
                 self.assertTrue(isinstance(r1, Base))
 
+        def test_str(self):
+                """str"""
+                s1 = Square(5)
+                s = "[Square] (1) 0/0 - 5"
+                self.assertEqual(print(s), print(s1))
+                s1.update(10)
+                s = "[Square] (10) 0/0 - 5"
+                self.assertEqual(print(s), print(s1))
+                s1.update(1, 2)
+                s = "[Square] (1) 0/0 - 2"
+                self.assertEqual(print(s), print(s1))
+                s1.update(1, 2, 3)
+                s = "[Square] (1) 3/0 - 2"
+                self.assertEqual(print(s), print(s1))
+                s1.update(1, 2, 3, 4)
+                s = "[Square] (1) 3/4 - 2"
+                self.assertEqual(print(s), print(s1))
+                s1.update(x=12)
+                s = "[Square] (1) 12/4 - 2"
+                self.assertEqual(print(s), print(s1))
+                s1.update(size=7, y=1)
+                s = "[Square] (1) 12/1 - 7"
+                self.assertEqual(print(s), print(s1))
+                s1.update(size=7, id=89, y=1)
+                s = "[Square] (89) 12/1 - 7"
+                self.assertEqual(print(s), print(s1))
+
 if __name__ == '__main__':
     unittest.main()
