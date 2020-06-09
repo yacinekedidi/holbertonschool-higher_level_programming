@@ -7,32 +7,25 @@ from models.rectangle import Rectangle
 from models.square import Square
 
 
-class TestBase(unittest.TestCase):
+class TestBase_instantiation(unittest.TestCase):
         """class"""
-        def setUp(self):
-                """setup"""
-                Base._base__nb_objects = 0
-                pass
-
-        def tearDown(self):
-                """tears down"""
-                pass
-
-        def test_main(self):
+        def test_no_args(self):
                 """test without args"""
                 b1 = Base()
-                self.assertEqual(b1.id, 1)
-
                 b2 = Base()
-                self.assertEqual(b2.id, 2)
+                self.assertEqual(b1.id, b2.id - 1)
 
-                b3 = Base()
-                self.assertEqual(b3.id, 3)
+        def test_one_arg(self):
+                """one arg"""
+                b1 = Base(5)
+                b2 = Base(10)
+                self.assertEqual(b1.id, 5)
+                self.assertEqual(b2.id, 10)
 
-                b4 = Base(12)
-                self.assertEqual(b4.id, 12)
+        def test_two_args(self):
+                """two args"""
+                with self.assertRaises(TypeError):
+                        b1 = Base(5, 10)
 
-                b5 = Base()
-                self.assertEqual(b5.id, 4)
 if __name__ == '__main__':
     unittest.main()
