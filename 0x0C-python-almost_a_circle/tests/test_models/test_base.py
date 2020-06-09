@@ -112,5 +112,26 @@ but 3 were given"
                 self.assertEqual(print(lso[0]), print(s1))
                 self.assertEqual(print(lso[1]), print(s2))
 
+        def test_save_to_file_csv(self):
+                """ save to csv file"""
+                r1 = Rectangle(10, 7, 2, 8)
+                r2 = Rectangle(2, 4)
+                list_rectangles_input = [r1, r2]
+                Rectangle.save_to_file_csv(list_rectangles_input)
+                lo = Rectangle.load_from_file_csv()
+                self.assertEqual(print(r1), print(lo[0]))
+                self.assertEqual(print(r2), print(lo[1]))
+
+                s1 = Square(5)
+                s2 = Square(7, 9, 1)
+                list_squares_input = [s1, s2]
+
+                Square.save_to_file_csv(list_squares_input)
+
+                lo = Square.load_from_file_csv()
+                self.assertEqual(print(s1), print(lo[0]))
+                self.assertEqual(print(s2), print(lo[1]))
+
+
 if __name__ == '__main__':
     unittest.main()
