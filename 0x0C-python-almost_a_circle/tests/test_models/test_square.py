@@ -23,8 +23,8 @@ class TestSquare_instantiation(unittest.TestCase):
                 self.assertEqual(r1.area(), 100)
                 """dict = {'id': 13, '_Rectangle__width': 10,
                         '_Rectangle__height': 10,
-                        '_Rectangle__x': 0,'_Rectangle__y': 0}"""
-                self.assertEqual(r1.__dict__, dict)
+                        '_Rectangle__x': 0,'_Rectangle__y': 0}
+                self.assertEqual(r1.__dict__, dict)"""
                 self.assertTrue(hasattr(r1, "id"))
                 self.assertTrue(hasattr(r1, '_Base__nb_objects'))
 
