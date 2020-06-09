@@ -124,5 +124,20 @@ class TestSquare_instantiation(unittest.TestCase):
                 s = "[Square] (89) 12/1 - 7"
                 self.assertEqual(print(s), print(s1))
 
+        def test_todict(self):
+                """to dict"""
+                s1 = Square(10, 2, 1)
+                s1_dictionary = s1.to_dictionary()
+                s = "{'id': 1, 'x': 2, 'size': 10, 'y': 1}"
+                self.assertEqual(print(s1_dictionary), print(s))
+                s = "<class 'dict'>"
+                self.assertEqual(print(type(s1_dictionary)), print(s))
+                s2 = Square(1, 1)
+                s2.update(**s1_dictionary)
+                s = "[Square] (1) 2/1 - 10"
+                self.assertEqual(print(s2), print(s))
+                self.assertFalse(s1 == s2)
+
+
 if __name__ == '__main__':
     unittest.main()
