@@ -37,11 +37,11 @@ class TestRectangle_instantiation(unittest.TestCase):
                 self.assertEqual(r1.height, 2)
                 self.assertEqual(r1.x, 12)
                 self.assertEqual(r1.area(), 20)
-                self.assertEqual(r1.__dict__, {"id": 7,
+                """self.assertEqual(r1.__dict__, {"id": 7,
                                                "_Rectangle__width": 10,
                                                "_Rectangle__height": 2,
                                                "_Rectangle__x": 12,
-                                               "_Rectangle__y": 0})
+                                               "_Rectangle__y": 0})"""
                 self.assertTrue(hasattr(r1, "id"))
                 self.assertTrue(hasattr(r1, '_Base__nb_objects'))
 
@@ -100,7 +100,6 @@ class TestRectangle_instantiation(unittest.TestCase):
                 r1 = Rectangle(1, 2)
                 dis = "#\n#\n"
                 self.assertEqual(r1.display(), print(dis))
-
 
 if __name__ == '__main__':
     unittest.main()
