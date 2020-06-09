@@ -5,6 +5,7 @@
 
 """
 import json
+import csv
 
 
 class Base:
@@ -74,3 +75,34 @@ class Base:
                 return [cls.create(**x) for x in y]
         except IOError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, lo):
+        """save to csv file"""
+        if lo is not None:
+            if cls.__name__ in "Rectangle":
+                ls = [[i.id, i.width, i.height, i.x, i.y] for i in lo]
+            else:
+                ls = [[i.id, i.size, i.x, i.y] for i in lo]
+            with open("{}.csv".format(cls.__name__), "w", newline="") as f:
+                w = csv.writer(f)
+                for i in ls:
+                    w.writerow(i)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """load from csv file"""
+        l = []
+        with open("{}.csv".format(cls.__name__), "r", newline="") as f:
+            r = csv.reader(f)
+            for row in r:
+                x =  [int(y) for y in row]
+                if len(x) == 5:
+                    d = {'id': x[0], 'width': x[1], 'height': x[2]
+                         , 'x': x[3], 'y': x[4]}
+                else:
+                    d = {'id': x[0], 'size': x[1]
+                         , 'x': x[2], 'y': x[3]}
+                l.append(cls.create(**d))
+
+        return l
