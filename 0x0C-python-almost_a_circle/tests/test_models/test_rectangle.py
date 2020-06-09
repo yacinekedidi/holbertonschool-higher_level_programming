@@ -24,18 +24,27 @@ class TestRectangle_instantiation(unittest.TestCase):
                 r1 = Rectangle(10, 12)
                 r2 = Rectangle(10, 2)
                 self.assertEqual(r1.id, r2.id - 1)
+                self.assertEqual(r1.width, 10)
+                self.assertEqual(r1.height, 12)
 
         def test_three_args(self):
                 """two args"""
                 r1 = Rectangle(10, 2, 12)
                 r2 = Rectangle(10, 2, 3)
                 self.assertEqual(r1.id, r2.id - 1)
+                self.assertEqual(r1.width, 10)
+                self.assertEqual(r1.height, 2)
+                self.assertEqual(r1.x, 12)
 
         def test_four_args(self):
                 """two args"""
                 r1 = Rectangle(10, 2, 12, 6)
                 r2 = Rectangle(10, 2, 0, 7)
                 self.assertEqual(r1.id, r2.id - 1)
+                self.assertEqual(r1.width, 10)
+                self.assertEqual(r1.height, 2)
+                self.assertEqual(r1.x, 12)
+                self.assertEqual(r1.y, 6)
 
         def test_five_args(self):
                 """two args"""
@@ -43,11 +52,16 @@ class TestRectangle_instantiation(unittest.TestCase):
                 r2 = Rectangle(10, 2, 3, 4, 9)
                 self.assertEqual(r1.id, 5)
                 self.assertEqual(r2.id, 9)
+                self.assertEqual(r1.width, 10)
+                self.assertEqual(r1.height, 2)
+                self.assertEqual(r1.x, 12)
+                self.assertEqual(r1.y, 10)
 
         def test_more_args(self):
                 """two args"""
                 with self.assertRaises(TypeError):
                         r1 = Rectangle(10, 2, 12, 10, 5, 4)
+
 
 if __name__ == '__main__':
     unittest.main()
