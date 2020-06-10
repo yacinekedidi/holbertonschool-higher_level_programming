@@ -81,6 +81,12 @@ class TestSquare_instantiation(unittest.TestCase):
                         r1 = Square(5, "x", 0)
                 with self.assertRaises(TypeError):
                         r1 = Square(5, "y", 0)
+                with self.assertRaises(TypeError):
+                        r1 = Square(1, 2, "3")
+                with self.assertRaises(ValueError):
+                        r1 = Square(-1)
+                with self.assertRaises(ValueError):
+                        r1 = Square(0)
 
         def test_display(self):
                 """display"""

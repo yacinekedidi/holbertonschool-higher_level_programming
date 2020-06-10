@@ -42,11 +42,11 @@ class TestRectangle_instantiation(unittest.TestCase):
 
         def test_four_args(self):
                 """two args"""
-                r1 = Rectangle(10, 2, 0, 0)
-                r2 = Rectangle(10, 2, 0, 7)
+                r1 = Rectangle(4, 5, 0, 0)
+                r2 = Rectangle(10, 1, 0, 7)
                 self.assertEqual(r1.id, r2.id - 1)
-                self.assertEqual(r1.width, 10)
-                self.assertEqual(r1.height, 2)
+                self.assertEqual(r1.width, 4)
+                self.assertEqual(r1.height, 5)
                 self.assertEqual(r1.x, 0)
                 self.assertEqual(r1.y, 0)
 
@@ -94,6 +94,12 @@ class TestRectangle_instantiation(unittest.TestCase):
                         r1 = Rectangle(5, 5, "x", -5)
                 with self.assertRaises(TypeError):
                         r1 = Rectangle(5, 5, "y", -5)
+                with self.assertRaises(TypeError):
+                        r1 = Rectangle(5, 5, 5, "y")
+                with self.assertRaises(ValueError):
+                        r1 = Rectangle(0, 5)
+                with self.assertRaises(ValueError):
+                        r1 = Rectangle(5, 0)
 
         def test_display(self):
                 """display"""
