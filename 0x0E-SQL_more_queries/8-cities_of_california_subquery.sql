@@ -4,7 +4,3 @@ SELECT c.id, c.name
 FROM states as s, cities as c
 WHERE s.id = c.state_id AND s.name = "California"
 ORDER BY c.id;
--- SELECT c.id, c.name
--- FROM cities as c
--- WHERE state_id = (SELECT id from states WHERE name = "California")
--- ORDER BY c.id;
