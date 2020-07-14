@@ -2,7 +2,7 @@
 -- QUERY
 SELECT ts.title, SUM(tsr.rate) AS ratings
 FROM tv_shows AS ts
-LEFT JOIN
+JOIN
 tv_show_ratings AS tsr
 ON ts.id = tsr.show_id
 GROUP BY ts.title
