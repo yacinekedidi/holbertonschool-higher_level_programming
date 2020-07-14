@@ -1,6 +1,6 @@
 -- script that lists all shows from hbtn_0d_tvshows_rate by their rating.
 -- QUERY
-SELECT ts.title, SUM(tsr.rate) as ratings
+SELECT ts.title, SUM(tsr.rate) AS ratings
 FROM tv_shows AS ts
 LEFT JOIN
 tv_show_ratings AS tsr
