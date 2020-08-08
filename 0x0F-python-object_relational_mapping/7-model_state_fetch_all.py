@@ -4,7 +4,7 @@ import sys
 from model_state import Base, State
 
 from sqlalchemy import (create_engine)
-from sqlalchemy.orm import relationship, sessionmaker
+from sqlalchemy.orm import sessionmaker
 
 
 if __name__ == "__main__":
@@ -16,6 +16,6 @@ if __name__ == "__main__":
     session = Session()
     states = session.query(State).order_by(State.id)
     for s in states:
-    	print("{}: {}".format(s.id, s.name))
+        print("{}: {}".format(s.id, s.name))
 
     session.close()
