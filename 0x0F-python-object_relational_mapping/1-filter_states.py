@@ -11,8 +11,7 @@ if __name__ == '__main__':
     cur.execute("""
                 SELECT *
                 FROM states
-                WHERE name
-                LIKE 'N%'
+                WHERE name LIKE 'N%' COLLATE latin1_general_cs
                 ORDER BY states.id;
                 """)
     query_rows = cur.fetchall()
