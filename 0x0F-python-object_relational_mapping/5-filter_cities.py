@@ -8,7 +8,7 @@ if __name__ == '__main__':
     conn = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
                            passwd=argv[2], db=argv[3], charset="utf8")
     cur = conn.cursor()
-    cur.execute("""SELECT DISTINCT (c.name) FROM cities AS c
+    cur.execute("""SELECT c.name FROM cities AS c
                    INNER JOIN states AS s
                    ON c.state_id = s.id
                    WHERE s.name = %s
