@@ -6,7 +6,7 @@ argv = sys.argv
 
 
 if __name__ == "__main__":
-   try:
+    try:
         x = argv[1][0]
     except:
         x = ""
