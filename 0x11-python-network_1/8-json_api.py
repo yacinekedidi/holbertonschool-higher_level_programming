@@ -13,8 +13,9 @@ if __name__ == "__main__":
     value = {"q": x}
     r = requests.post("http://0.0.0.0:5000/search_user", data=value)
     try:
-        if r.json():
-            print("[{}] {}".format(r.json().get("id"), r.json().get("name")))
+        dic = r.json()
+        if dic:
+            print("[{}] {}".format(dic.get("id"), dic.get("name")))
         else:
             print("No result")
     except:
