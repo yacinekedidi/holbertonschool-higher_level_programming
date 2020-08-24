@@ -11,7 +11,7 @@ if __name__ == "__main__":
     c = r.json()
     try:
         for i in range(10):
-            print("{}: {}".format(c[i].get("sha"), 
-                                  c[i].get("commit").get("author").get("name")))
+            print("{}: {}".format(c[i].get("sha"), c[i].get("commit")
+                                  .get("author").get("name")))
     except:
         pass
