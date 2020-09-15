@@ -1,6 +1,6 @@
 #!/usr/bin/node
-let myArgs = process.argv.slice(2);
-let l = myArgs.length;
+const myArgs = process.argv.slice(2);
+const l = myArgs.length;
 let a;
 if (l === 0) {
   a = 'No argument';
