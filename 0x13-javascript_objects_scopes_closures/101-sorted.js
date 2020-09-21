@@ -1,7 +1,7 @@
 #!/usr/bin/node
 const d = require('./101-data').dict;
 const l = Object.values(d);
-var ll = l.filter(function (item, pos) {
+let ll = l.filter(function (item, pos) {
   return l.indexOf(item) === pos;
 });
 
