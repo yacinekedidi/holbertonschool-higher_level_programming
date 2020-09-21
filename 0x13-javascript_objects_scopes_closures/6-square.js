@@ -9,9 +9,10 @@ module.exports = class Square extends S {
   charPrint (c) {
     if (typeof c === 'undefined') {
       this.print();
-    }
-    for (let i = 0; i < this.height; i++) {
-      console.log(c.repeat(this.width));
+    } else {
+      for (let i = 0; i < this.height; i++) {
+        console.log(c.repeat(this.width));
+      }
     }
   }
 };
