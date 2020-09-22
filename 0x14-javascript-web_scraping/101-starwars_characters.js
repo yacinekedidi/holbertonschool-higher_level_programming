@@ -9,9 +9,8 @@ request(url, function (err, resp, body) {
   const info = JSON.parse(body);
   for (let i = 0; i < info.characters.length; i++) {
     request(info.characters[i], function (err, resp, body) {
-      err && console.log(err);
       const character = JSON.parse(body);
-      console.log(character.name);
+      !err && console.log(character.name);
     });
   }
 });
