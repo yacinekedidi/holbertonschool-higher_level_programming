@@ -1,4 +1,3 @@
-/* global $ */
 $(document).ready(function () {
   $('INPUT#language_code').keypress(function (event) {
     $('INPUT#btn_translate').click();

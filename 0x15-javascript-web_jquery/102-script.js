@@ -1,4 +1,3 @@
-/* global $ */
 $(document).ready(function () {
   $('INPUT#btn_translate').click(function () {
     const url = 'https://fourtonfish.com/hellosalut/?lang=' + $('INPUT#language_code').val();
